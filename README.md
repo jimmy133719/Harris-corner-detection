@@ -1,16 +1,16 @@
 # Harris-corner-detection
 
-### Description:
+### Description
 Implement Harris-corner-detection from scratch without using functions that can get the result directly.
 
-### Packages used:
+### Packages used
 1. numpy: array operation
 2. cv2: load, save, show image
 3. math: generate some special arithmetic operators
 4. matlplotlib: save, show image
 5. scipy: convolution, generate filters
 
-### Function:
+### Function
 1. gaussian_smooth:
 ```
     description:
@@ -45,8 +45,7 @@ Implement Harris-corner-detection from scratch without using functions that can 
 4. nms: 
 ```    
     description:
-        calculate corner response of each matrix and select pixels with response 
-        that larger than threshold as corners
+        calculate corner response of each matrix and select pixels with response that larger than threshold as corners
     input:
         ix, iy: x and y direction of image gradient(H * W)
         win_size: window size of structure tensor(N * N)
@@ -80,27 +79,21 @@ Implement Harris-corner-detection from scratch without using functions that can 
     output:
         resized: resized image(H * W * 3)
 ```
-### Parameters:
+### Parameters
     kernel_size: kernel size of Guassian blur
     win_size: window size of structure tensor
     local_size: window size of finding local maximum in nms
     ROTATE: whether to rotate
     RESIZE: whether to resize
 
-### Procedure:
+### Procedure
 1. read image    
 2. rotate/scale image(optional)
 3. smooth image
 4. convert smoothed image to gray-scale
 5. sobel edge detection
-6. generate colour gradient direction image
-```
-    description:
-        First, use a threshold to filter out pixels with low gradient magnitude.
-        Second, generate two masks that store the position of the positive and 
-        negative gradient direction respectively.Third, interpolate negative 
-        gradient direction to [0.1,0.5] and positive one to [0.6,1.0]. Last, 
-        product these two results with corresponding masks and sum up to generate
-        colour gradient direction image.
-```		
+6. generate colour gradient direction image    
+> description:  
+>> First, use a threshold to filter out pixels with low gradient magnitude. Second, generate two masks that store the position of    the positive and negative gradient direction respectively.Third, interpolate negative gradient direction to [0.1,0.5] and positive one to [0.6,1.0]. Last, product these two results with corresponding masks and sum up to generatecolour gradient direction image.
+
 7. non-maximum suppression
