@@ -11,7 +11,8 @@ Implement Harris-corner-detection from scratch without using functions that can 
 5. scipy: convolution, generate filters
 
 ### Function:
-1. gaussian_smooth: 
+1. gaussian_smooth:
+```
     description:
         convolve image with gaussian filter to generate smoothed image
     input: 
@@ -20,7 +21,9 @@ Implement Harris-corner-detection from scratch without using functions that can 
         sigma: gaussian filter variance
     output: 
         img_smooth: image smoothed by gaussian filter(H * W * 3)
-2. sobel_edge_detection: 
+```
+2. sobel_edge_detection:
+```
     description:    
         convolve image sobel filter to generate gradient information of image
     input: 
@@ -29,14 +32,18 @@ Implement Harris-corner-detection from scratch without using functions that can 
         grad_mag: gradient magnitude(H * W)
         grad_dir: gradient direction(H * W)
         img_gx, img_gy: x and y direction of image gradient(H * W)
-3. structure_tensor: 
+```
+3. structure_tensor:
+```
     description:    
         generate the elements of structure tensor
     input:
         ix, iy: x and y direction of image gradient(H * W)      
     output:
         ixx, ixy, iyy: three kinds of elements in structure tensor(H * W)
+```        
 4. nms: 
+```    
     description:
         calculate corner response of each matrix and select pixels with response 
         that larger than threshold as corners
@@ -48,8 +55,10 @@ Implement Harris-corner-detection from scratch without using functions that can 
         sigma: gaussian filter variance
     output:
         R: corner response(H * W)
-        corner: selected corners(H * W)    
-5. rotate: 
+        corner: selected corners(H * W) 
+```        
+5. rotate:
+```
     description:    
         rotate image
     input:
@@ -59,7 +68,9 @@ Implement Harris-corner-detection from scratch without using functions that can 
         scale: relative size to input image
     output:
         rotated: rotated image(H * W * 3)
+```
 6. resize:
+```
     description:
         resize image
     input:
@@ -68,7 +79,7 @@ Implement Harris-corner-detection from scratch without using functions that can 
         inter: type of interpolation(cv2 built-in parameter)
     output:
         resized: resized image(H * W * 3)
-
+```
 ### Parameters:
     kernel_size: kernel size of Guassian blur
     win_size: window size of structure tensor
@@ -83,6 +94,7 @@ Implement Harris-corner-detection from scratch without using functions that can 
 4. convert smoothed image to gray-scale
 5. sobel edge detection
 6. generate colour gradient direction image
+```
     description:
         First, use a threshold to filter out pixels with low gradient magnitude.
         Second, generate two masks that store the position of the positive and 
@@ -90,4 +102,5 @@ Implement Harris-corner-detection from scratch without using functions that can 
         gradient direction to [0.1,0.5] and positive one to [0.6,1.0]. Last, 
         product these two results with corresponding masks and sum up to generate
         colour gradient direction image.
+```		
 7. non-maximum suppression
