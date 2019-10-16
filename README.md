@@ -4,9 +4,9 @@
 Implement Harris-corner-detection from scratch without using functions that can get the result directly.
 
 ### Packages used:
-...1. numpy: array operation
-...2. cv2: load, save, show image
-...3. math: generate some special arithmetic operators
+1. numpy: array operation
+2. cv2: load, save, show image
+3. math: generate some special arithmetic operators
 4. matlplotlib: save, show image
 5. scipy: convolution, generate filters
 
