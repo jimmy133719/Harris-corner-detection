@@ -82,7 +82,6 @@ def nms(ix, iy, win_size=3, k=0.04, local_size=5, sigma=5):
     R_max_filt = ndimage.maximum_filter(R, size=local_size) 
     mask2 = abs(R - R_max_filt) < 3e-5 # find the pixels which are local maximum
     corner = mask1 & mask2
-    #################################################################
     
     return R, corner
 
